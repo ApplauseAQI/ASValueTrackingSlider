@@ -1,5 +1,5 @@
 //
-//  ASValueTrackingSlider.h
+//  APLASValueTrackingSlider.h
 //  ValueTrackingSlider
 //
 //  Created by Alan Skipp on 19/10/2013.
@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@protocol ASValueTrackingSliderDelegate;
-@protocol ASValueTrackingSliderDataSource;
+@protocol APLASValueTrackingSliderDelegate;
+@protocol APLASValueTrackingSliderDataSource;
 
-@interface ASValueTrackingSlider : UISlider
+@interface APLASValueTrackingSlider : UISlider
 
 // present the popUpView manually, without touch event.
 - (void)showPopUpViewAnimated:(BOOL)animated;
@@ -57,36 +57,36 @@
 @property (copy, nonatomic) NSNumberFormatter *numberFormatter;
 
 // supply entirely customized strings for slider values using the datasource protocol - see below
-@property (weak, nonatomic) id<ASValueTrackingSliderDataSource> dataSource;
+@property (weak, nonatomic) id<APLASValueTrackingSliderDataSource> dataSource;
 
 // delegate is only needed when used with a TableView or CollectionView - see below
-@property (weak, nonatomic) id<ASValueTrackingSliderDelegate> delegate;
+@property (weak, nonatomic) id<APLASValueTrackingSliderDelegate> delegate;
 @end
 
 
 
-// to supply custom text to the popUpView label, implement <ASValueTrackingSliderDataSource>
+// to supply custom text to the popUpView label, implement <APLASValueTrackingSliderDataSource>
 // the dataSource will be messaged each time the slider value changes
-@protocol ASValueTrackingSliderDataSource <NSObject>
-- (NSString *)slider:(ASValueTrackingSlider *)slider stringForValue:(float)value;
+@protocol APLASValueTrackingSliderDataSource <NSObject>
+- (NSString *)slider:(APLASValueTrackingSlider *)slider stringForValue:(float)value;
 @end
 
-// when embedding an ASValueTrackingSlider inside a TableView or CollectionView
+// when embedding an APLASValueTrackingSlider inside a TableView or CollectionView
 // you need to ensure that the cell it resides in is brought to the front of the view hierarchy
 // to prevent the popUpView from being obscured
-@protocol ASValueTrackingSliderDelegate <NSObject>
-- (void)sliderWillDisplayPopUpView:(ASValueTrackingSlider *)slider;
+@protocol APLASValueTrackingSliderDelegate <NSObject>
+- (void)sliderWillDisplayPopUpView:(APLASValueTrackingSlider *)slider;
 
 @optional
-- (void)sliderWillHidePopUpView:(ASValueTrackingSlider *)slider;
-- (void)sliderDidHidePopUpView:(ASValueTrackingSlider *)slider;
+- (void)sliderWillHidePopUpView:(APLASValueTrackingSlider *)slider;
+- (void)sliderDidHidePopUpView:(APLASValueTrackingSlider *)slider;
 @end
 
 /*
 // the recommended technique for use with a tableView is to create a UITableViewCell subclass ↓
  
- @interface SliderCell : UITableViewCell <ASValueTrackingSliderDelegate>
- @property (weak, nonatomic) IBOutlet ASValueTrackingSlider *slider;
+ @interface SliderCell : UITableViewCell <APLASValueTrackingSliderDelegate>
+ @property (weak, nonatomic) IBOutlet APLASValueTrackingSlider *slider;
  @end
  
  @implementation SliderCell
@@ -95,7 +95,7 @@
     self.slider.delegate = self;
  }
  
- - (void)sliderWillDisplayPopUpView:(ASValueTrackingSlider *)slider;
+ - (void)sliderWillDisplayPopUpView:(APLASValueTrackingSlider *)slider;
  {
     [self.superview bringSubviewToFront:self];
  }

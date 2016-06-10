@@ -1,5 +1,5 @@
 //
-//  ASValuePopUpView.m
+//  APLASValuePopUpView.m
 //  ValueTrackingSlider
 //
 //  Created by Alan Skipp on 27/03/2014.
@@ -7,11 +7,11 @@
 //
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// This UIView subclass is used internally by ASValueTrackingSlider
-// The public API is declared in ASValueTrackingSlider.h
+// This UIView subclass is used internally by APLASValueTrackingSlider
+// The public API is declared in APLASValueTrackingSlider.h
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-#import "ASValuePopUpView.h"
+#import "APLASValuePopUpView.h"
 
 @implementation CALayer (ASAnimationAdditions)
 
@@ -29,7 +29,7 @@
 
 NSString *const SliderFillColorAnim = @"fillColor";
 
-@implementation ASValuePopUpView
+@implementation APLASValuePopUpView
 {
     BOOL _shouldAnimate;
     CFTimeInterval _animDuration;
