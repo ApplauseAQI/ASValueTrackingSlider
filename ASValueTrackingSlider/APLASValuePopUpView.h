@@ -18,7 +18,7 @@
 - (void)colorDidUpdate:(UIColor *)opaqueColor;
 @end
 
-@interface APLASValuePopUpView : UIView
+@interface APLASValuePopUpView : UIView <CAAnimationDelegate>
 
 @property (weak, nonatomic) id <APLASValuePopUpViewDelegate> delegate;
 @property (nonatomic) CGFloat cornerRadius;
